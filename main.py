@@ -29,6 +29,7 @@ class NumberInputHandler(webapp2.RequestHandler):
         self.response.write(start_template.render())
 
     def post(self):
+        number_template = jinja_current_dir.get_template("templates/displaynumbers.html")
 
         n1 = self.request.get('n1')
         n2 = self.request.get('n2')
@@ -37,7 +38,9 @@ class NumberInputHandler(webapp2.RequestHandler):
         n5 = self.request.get('n5')
         n6 = self.request.get('n6')
         n7 = self.request.get('n7')
-        self.response.write(n1 + n2 + n3 + n4 + n5 + n6 + n7)
+
+        numDict = {"n1":n1, "n2":n2, "n3":n3, "n4":n4, "n5":n5, "n6":n6, "n7":n7}
+        self.response.write(number_template.render(numDict))
 
 app = webapp2.WSGIApplication([
 ('/', DisplayHandler),
