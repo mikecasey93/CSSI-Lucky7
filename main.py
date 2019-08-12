@@ -42,6 +42,14 @@ class NumberInputHandler(webapp2.RequestHandler):
         numDict = {"n1":n1, "n2":n2, "n3":n3, "n4":n4, "n5":n5, "n6":n6, "n7":n7}
         self.response.write(number_template.render(numDict))
 
+class WinningNumberHandler(webapp2.RequestHandler):
+    def get(self):
+        start_template = jinja_current_dir.get_template("templates/select.html")
+        self.response.write(start_template.render())
+
+    #def post(self):
+
+
 app = webapp2.WSGIApplication([
 ('/', DisplayHandler),
 ('/numberInput', NumberInputHandler)
