@@ -23,8 +23,8 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: /app-stylesheets
-  static_dir: app-stylesheets
+- url: /style
+  static_dir: style
 
 - url: /my-images
   static_dir: my-images
