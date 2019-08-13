@@ -1,5 +1,6 @@
 from google.appengine.ext import ndb
 
+
 class Lottery(ndb.Model):
 	n1 = ndb.IntegerProperty(required=True)
 	n2 = ndb.IntegerProperty(required=True)
