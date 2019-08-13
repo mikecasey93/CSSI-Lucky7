@@ -97,6 +97,7 @@ class ChooseDateHandler(webapp2.RequestHandler):
     def get(self):
         start_template = jinja_current_dir.get_template("templates/chooseDate.html")
         self.response.write(start_template.render())
+        
 
     def post(self):
         input_date = self.request.get('Date')
