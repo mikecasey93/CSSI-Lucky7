@@ -4,6 +4,7 @@ import random
 import jinja2
 import datetime
 from database import seed_data
+from app_models import Lottery
 
 userList = []
 
@@ -98,7 +99,12 @@ class ChooseDateHandler(webapp2.RequestHandler):
         self.response.write(start_template.render())
 
     def post(self):
-        input_date = self.request.get('Users-date')
+        input_date = self.request.get('Date')
+        wn = Lottery.query().filter(Lottery.date == input_date).get()
+        print wn.n1, wn.n2
+        d={"n1":wn.n1, "n2":wn.n2, "n3":wn.n3, "n4":wn.n4, "n5":wn.n5, "n6":wn.n6,}
+        e={"m1":wn.date}
+        self.response.write()
 
 app = webapp2.WSGIApplication([
 ('/', DisplayHandler), # age

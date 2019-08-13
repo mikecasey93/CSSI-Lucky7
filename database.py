@@ -1,7 +1,7 @@
 from app_models import Lottery
 
 def seed_data():
-    Lottery(n1=7,n2=16,n3=20,n4=66,n5=73,n6=7,date="08-15-2017").put()
+    Lottery(n1=7,n2=16,n3=20,n4=66,n5=73,n6=7,date="2017-08-15").put()
     Lottery(n1=1,n2=31,n3=34,n4=40,n5=75,n6=6,date="08/18/2017").put()
     Lottery(n1=24,n2=35,n3=46,n4=50,n5=51,n6=7,date="08/22/2017").put()
     Lottery(n1=17,n2=38,n3=42,n4=51,n5=65,n6=11,date="08/25/2017").put()
