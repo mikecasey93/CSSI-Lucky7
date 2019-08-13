@@ -56,19 +56,19 @@ class OptionHandler(webapp2.RequestHandler):
         start_template = jinja_current_dir.get_template("templates/option.html")
         self.response.write(start_template.render())
 
-class WinningNumberHandler(webapp2.RequestHandler):
-    def get(self):
-        start_template = jinja_current_dir.get_template("templates/random.html")
-        self.response.write(start_template.render())
 
-<<<<<<< HEAD
 class LoadPage(webapp2.RequestHandler):
     def get(self):
         seed_data()
         #t = the_jinja_env.get_template('/templates/loader.html')
         self.response.write("done")
     #def post(self):
-=======
+
+class WinningNumberHandler(webapp2.RequestHandler):
+    def get(self):
+        start_template = jinja_current_dir.get_template("templates/random.html")
+        self.response.write(start_template.render())
+
     def post(self):
         winningNumber = []
         newList = []
@@ -79,7 +79,6 @@ class LoadPage(webapp2.RequestHandler):
             index = random.randint(0,len(winningNumber)-1)
             newList.append(winningNumber[index])
             winningNumber.pop(index)
->>>>>>> 8e0e53ad3565b264dfab67fd10a2f0597418a323
 
         winNumDict = {"wn1":newList[0], "wn2":newList[1], "wn3":newList[2], "wn4":newList[3], "wn5":newList[4], "wn6":newList[5]}
         numberMatch = 0
@@ -102,14 +101,10 @@ class ChooseDateHandler(webapp2.RequestHandler):
         input_date = self.request.get('Users-date')
 
 app = webapp2.WSGIApplication([
-<<<<<<< HEAD
-('/', DisplayHandler),
-('/numberInput', NumberInputHandler),('/load',LoadPage)
-=======
 ('/', DisplayHandler), # age
+('/load',LoadPage),
 ('/numberInput', NumberInputHandler), # manual entry for 6 numbers and a date
 ('/winningNumber', WinningNumberHandler), # radom gate with manual entry for 6 num
 ('/chooseDate', ChooseDateHandler),
 ('/option', OptionHandler)
->>>>>>> 8e0e53ad3565b264dfab67fd10a2f0597418a323
 ], debug=True)
