@@ -3,6 +3,7 @@ import os
 import random
 import jinja2
 import datetime
+from database import seed_data
 
 jinja_current_dir = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -47,10 +48,15 @@ class WinningNumberHandler(webapp2.RequestHandler):
         start_template = jinja_current_dir.get_template("templates/select.html")
         self.response.write(start_template.render())
 
+class LoadPage(webapp2.RequestHandler):
+    def get(self):
+        seed_data()
+        #t = the_jinja_env.get_template('/templates/loader.html')
+        self.response.write("done")
     #def post(self):
 
 
 app = webapp2.WSGIApplication([
 ('/', DisplayHandler),
-('/numberInput', NumberInputHandler)
+('/numberInput', NumberInputHandler),('/load',LoadPage)
 ], debug=True)
