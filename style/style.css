@@ -22,7 +22,7 @@ body{
   border-radius: 50%;
 	width: 70px;
 	height: 70px;
-  background-color: gray;
+  background-color: #cccccc;
 }
 
 #select
@@ -36,4 +36,20 @@ body{
 #CDBody
 {
   background-color: #ffaf4d
+}
+
+.list
+{
+  display: flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.list > div
+{
+  padding: 5px;
+  text-align: center;
+
 }

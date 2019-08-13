@@ -97,14 +97,35 @@ class ChooseDateHandler(webapp2.RequestHandler):
     def get(self):
         start_template = jinja_current_dir.get_template("templates/chooseDate.html")
         self.response.write(start_template.render())
-        
+
 
     def post(self):
         input_date = self.request.get('Date')
         wn = Lottery.query().filter(Lottery.date == input_date).get()
         d={"n1":wn.n1, "n2":wn.n2, "n3":wn.n3, "n4":wn.n4, "n5":wn.n5, "n6":wn.n6,"date": wn.date}
         start_template = jinja_current_dir.get_template("templates/winningnumber.html")
+
+        n1 = self.request.get('n1')
+        n2 = self.request.get('n2')
+        n3 = self.request.get('n3')
+        n4 = self.request.get('n4')
+        n5 = self.request.get('n5')
+        n6 = self.request.get('n6')
+
+        numDict = {"n1":n1, "n2":n2, "n3":n3, "n4":n4, "n5":n5, "n6":n6}
+        userList.append(n1)
+        userList.append(n2)
+        userList.append(n3)
+        userList.append(n4)
+        userList.append(n5)
+        userList.append(n6)
         self.response.write(start_template.render(d))
+
+        if userList[0 == wn.n1] and userList[1 == wn.n2] and userList[2 == wn.n3] and userList[3 == wn.n4] and userList[4 == wn.n5] and userList[5 == wn.n6]:
+                self.response.write("You win!")
+        else:
+            self.response.write("Try again")
+
 
 app = webapp2.WSGIApplication([
 ('/', DisplayHandler), # age
