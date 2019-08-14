@@ -92,6 +92,12 @@ class RandomHandler(webapp2.RequestHandler):
         n5 = self.request.get('n5')
         n6 = self.request.get('n6')
 
+        winNumDict["n1"]=n1
+        winNumDict["n2"]=n2
+        winNumDict["n3"]=n3
+        winNumDict["n4"]=n4
+        winNumDict["n5"]=n5
+        winNumDict["n6"]=n6
         numDict = {"n1":n1, "n2":n2, "n3":n3, "n4":n4, "n5":n5, "n6":n6}
         userList.append(n1)
         userList.append(n2)
@@ -99,15 +105,15 @@ class RandomHandler(webapp2.RequestHandler):
         userList.append(n4)
         userList.append(n5)
         userList.append(n6)
-       
-        for l in userList:
-            self.response.write(l)
 
+       
+        """for l in userList:
+            self.response.write()
+"""
         for k in range(0,len(newList)-1):
             if userList[k] == newList[k]:
                 numberMatch+=1
 
-        self.response.write(numberMatch)
 
         start_template = jinja_current_dir.get_template("templates/randomdisplay.html")
         self.response.write(start_template.render(winNumDict))
