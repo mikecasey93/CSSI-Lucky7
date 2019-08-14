@@ -150,8 +150,8 @@ class ChooseDateHandler(webapp2.RequestHandler):
 
         self.response.write(start_template.render(d))
     
-        for l in numDict:
-            self.response.write(l)
+        for key in numDict:
+            self.response.write(numDict[key])
         
         numberMatch = 0
 

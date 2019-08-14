@@ -7,7 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome Page</title>
     <link rel="stylesheet" href="style/style.css">
-    <style> 
+    
+    
+    <style>
+        body {
+    background-image: url("https://i.pinimg.com/originals/57/49/47/574947c3f37720433aa59c4e08262c4b.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;  
+    }
+
     @keyframes float {
 	0% {
 		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
@@ -45,15 +53,44 @@
   
 	img { width: 100%; height: auto; }
 }
+
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
     </style>
 </head>
+<<<<<<< HEAD
 <body id="Welcomebody">
+=======
+<body class= body >
+>>>>>>> c359f90a29724829036806ac0bd79b057bbe45a6
     <h1 id="h1">
         <div class= container>
         <div class= avatar>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzXwp7mDLXfF6cTs68HYSujNlu6RW8Ew851bRcM73N0NddoitJ"/>
+               <a href="http://localhost:8080/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzXwp7mDLXfF6cTs68HYSujNlu6RW8Ew851bRcM73N0NddoitJ"/></a>
     </h1>
-    <h1 id="button"><button onclick="myFunction()">Ready To Play?</button></h1>
+    <h1>
+        <center>
+        <button class= button>Ready To Play?</button>
+            </center>
+    </h1>
 
 
     <ul>

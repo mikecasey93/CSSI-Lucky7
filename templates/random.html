@@ -7,6 +7,7 @@
   </head>
   <body id="CDBody">
     <center>
+            <h2>Select six numbers and try your luck with the computer!</h2>
    
        <script>
            function randint(start,end)
@@ -28,7 +29,7 @@
                number.push(draw[index]);
                draw.splice(index,1);
            }
-                document.getElementById("cl").value=number[0]
+                document.getElementById("cl1").value=number[0]
                 document.getElementById("cl2").value=number[1]
                 document.getElementById("cl3").value=number[2]
                 document.getElementById("cl4").value=number[3]
@@ -40,7 +41,7 @@
         
 
     <form action="/chooseDate" method="POST">
-      <input id="cl"type="number"name="n1">
+      <input id="cl1"type="number"name="n1">
       <input id="cl2"type="number"name="n2">
       <input id="cl3"type="number"name="n3">
       <input id="cl4"type="number"name="n4">
@@ -49,7 +50,7 @@
       
       
     </form>
-
+    <input type="submit" value="Submit">
 
 
   </body>
