@@ -152,8 +152,9 @@ class ChooseDateHandler(webapp2.RequestHandler):
     
         for key in numDict:
             self.response.write(numDict[key])
+            print("\n")
         
-        numberMatch = 0
+        print("\n")
 
         if wm == wn:
             self.response.write("You win!")
