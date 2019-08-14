@@ -7,10 +7,51 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome Page</title>
     <link rel="stylesheet" href="style/style.css">
+    <style> 
+    @keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.avatar {
+	width: 234px;
+	height: 234px;
+	box-sizing: border-box;
+	border: 5px white solid;
+	border-radius: 50%;
+	overflow: hidden;
+	box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+	transform: translatey(0px);
+  animation: float 3s ease-in-out infinite;
+  
+	img { width: 100%; height: auto; }
+}
+    </style>
 </head>
 <body id="Welcomebody">
     <h1 id="h1">
-    Lucky 6
+        <div class= container>
+        <div class= avatar>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzXwp7mDLXfF6cTs68HYSujNlu6RW8Ew851bRcM73N0NddoitJ"/>
     </h1>
     <h1 id="button"><button onclick="myFunction()">Ready To Play?</button></h1>
 
