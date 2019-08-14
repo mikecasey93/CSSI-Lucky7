@@ -107,7 +107,6 @@ class RandomHandler(webapp2.RequestHandler):
             if userList[k] == newList[k]:
                 numberMatch+=1
 
-        self.response.write(numberMatch)
 
         start_template = jinja_current_dir.get_template("templates/randomdisplay.html")
         self.response.write(start_template.render(winNumDict))
