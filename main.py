@@ -13,6 +13,7 @@ jinja_current_dir = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
+
 class DisplayHandler(webapp2.RequestHandler):
     def get(self):
         start_template = jinja_current_dir.get_template("templates/WelcomePage.html")
