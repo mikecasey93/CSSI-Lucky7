@@ -12,14 +12,21 @@
   background-color: #ffaf4d
 }
 
-.cl
+.cl 
 {
   border-radius: 50%;
 	width: 70px;
 	height: 70px;
-  background-color: #cccccc;
+  background-color: #acacac;
 }
 
+.cl (1-6)
+{
+  border-radius: 50%;
+	width: 70px;
+	height: 70px;
+  background-color: #acacac; 
+}
 #select
 {
   color:aliceblue;
@@ -44,9 +51,17 @@
 
 .list > div
 {
-  padding: 5px;
+  padding: 10px;
   text-align: center;
 
 }
 
 
+.NoMatch{
+  background-color: rgb(236, 101, 101);
+}
+
+.match
+{
+  background-color: rgb(0, 192, 0);
+}
