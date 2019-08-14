@@ -1,9 +1,4 @@
 /* WelcomePage */
-body{
-  background-color: #202092;
-
-}
-
 #h1{
   text-align: center;
   font-family: "Arial Black", Gadget, sans-serif;
@@ -27,7 +22,7 @@ body{
 
 #select
 {
-
+  color:aliceblue;
   font-size: 40px
 
 
