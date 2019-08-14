@@ -144,10 +144,6 @@ class ChooseDateHandler(webapp2.RequestHandler):
         userList.append(n4)
         userList.append(n5)
         userList.append(n6)
-        """
-        wm = Lottery(n1 = int(self.request.get('n1')), n2 = int(self.request.get('n2')), n3 = int(self.request.get('n3')), n4 = int(self.request.get('n4')), n5 = int(self.request.get('n5')), n6 = int(self.request.get('n6')), date = date)
-        
-
         self.response.write(start_template.render(d))
     
         for key in numDict:
