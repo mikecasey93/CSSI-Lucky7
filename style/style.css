@@ -1,5 +1,5 @@
 /* WelcomePage */
-body{
+#welcomebody{
   background-color: #202092;
 
 }
@@ -27,7 +27,7 @@ body{
 
 #select
 {
-
+  color:aliceblue;
   font-size: 40px
 
 
@@ -52,4 +52,8 @@ body{
   padding: 5px;
   text-align: center;
 
+}
+.list
+{
+  font-size: 30px
 }
