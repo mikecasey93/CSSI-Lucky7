@@ -109,11 +109,13 @@ class RandomHandler(webapp2.RequestHandler):
 
         self.response.write(numberMatch)
 
-
+        start_template = jinja_current_dir.get_template("templates/randomsplay.html")
+        self.response.write(start_template.render())
+        
         if numberMatch == 6:
             self.response.write("Congradulation you win!")
         else:
-            self.response.write("You scored ", numberMatch, " try again")
+            self.response.write(numberMatch)
 
 
 class ChooseDateHandler(webapp2.RequestHandler):
