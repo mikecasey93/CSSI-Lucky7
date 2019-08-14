@@ -13,8 +13,8 @@
        
       if (agePrompt>=18) alert('Welcome!')
       else {
-      alert('Sorry! Come back in a few years!')
-      
+      alert('Sorry! Come back in a few years!');
+      location.href = "https://www.google.com";
        
       }
       </script>
@@ -64,7 +64,7 @@
 	img { width: 100%; height: auto; }
 }
 
-.button {
+.bt {
   padding: 15px 25px;
   font-size: 24px;
   text-align: center;
@@ -90,12 +90,14 @@
     <h1 id="h1">
         <div class= container>
         <div class= avatar>
-               <a href="http://localhost:8080/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzXwp7mDLXfF6cTs68HYSujNlu6RW8Ew851bRcM73N0NddoitJ"/></a>
+               <a href="/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzXwp7mDLXfF6cTs68HYSujNlu6RW8Ew851bRcM73N0NddoitJ"/></a>
     </h1>
     <h1>
         <center>
-        <button class= button>Ready To Play?</button>
-            </center>
+          
+            <a href= "/chooseDate"><button class= bt>Ready To Play?</button></a>
+             
+      </center>
     </h1>
 
 
