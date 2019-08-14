@@ -41,7 +41,7 @@
 .list
 {
   display: flex;
-  flex-direction:row;
+  flex-direction:column;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
@@ -53,12 +53,5 @@
   text-align: center;
 
 }
-<<<<<<< HEAD
-.list
-{
-  font-size: 30px
-}
-=======
 
 
->>>>>>> 7af8bb40f7ca248e1480992daf9fe23a50e852fc
