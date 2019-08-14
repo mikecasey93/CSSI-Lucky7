@@ -110,7 +110,7 @@ class RandomHandler(webapp2.RequestHandler):
         self.response.write(numberMatch)
 
 
-        if numberMatch < 6:
+        if numberMatch == 6:
             self.response.write("Congradulation you win!")
         else:
             self.response.write("You scored ", numberMatch, " try again")
