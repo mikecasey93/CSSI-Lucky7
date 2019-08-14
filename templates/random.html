@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body id="CDBody">
+    <center>
+   
+       <script>
+           function randint(start,end)
+           {
+               let seed=Math.floor(Math.random()*1000)
+            return start+(seed%(end-start+1))
+           }
+           function quickdraw()
+           {
+           let draw = [];
+           let number = [];
+           for( let i=1;i<=59;i+=1)
+           {
+               draw.push(i);
+           }
+           for(let i=1;i<=6;i+=1)
+           {
+               let index=randint(0,draw.length);
+               number.push(draw[index]);
+               draw.splice(index,1);
+           }
+                document.getElementById("cl").value=number[0]
+                document.getElementById("cl2").value=number[1]
+                document.getElementById("cl3").value=number[2]
+                document.getElementById("cl4").value=number[3]
+                document.getElementById("cl5").value=number[4]
+                document.getElementById("cl6").value=number[5]
+           }
+           
+        </script>
+        
+
+    <form action="/chooseDate" method="POST">
+      <input id="cl"type="number"name="n1">
+      <input id="cl2"type="number"name="n2">
+      <input id="cl3"type="number"name="n3">
+      <input id="cl4"type="number"name="n4">
+      <input id="cl5"type="number"name="n5">
+      <input id="cl6"type="number"name="n6">
+      
+      
+    </form>
+
+
+
+  </body>
+</html>

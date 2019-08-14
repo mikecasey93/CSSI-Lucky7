@@ -83,28 +83,7 @@ class WinningNumberHandler(webapp2.RequestHandler):
 
         winNumDict = {"wn1":newList[0], "wn2":newList[1], "wn3":newList[2], "wn4":newList[3], "wn5":newList[4], "wn6":newList[5]}
         numberMatch = 0
-        for k in range(0,len(newList)-1):
-            if userList[k] == newList[k]:
-                numberMatch+=1
-
-        if numberMatch < 6:
-            self.response.write("Congradulation you win!")
-        else:
-            self.response.write("You scored ", numberMatch, " try again")
-
-
-class ChooseDateHandler(webapp2.RequestHandler):
-    def get(self):
-        start_template = jinja_current_dir.get_template("templates/chooseDate.html")
-        self.response.write(start_template.render())
-
-
-    def post(self):
-        input_date = self.request.get('Date')
-        wn = Lottery.query().filter(Lottery.date == input_date).get()
-        d={"n1":wn.n1, "n2":wn.n2, "n3":wn.n3, "n4":wn.n4, "n5":wn.n5, "n6":wn.n6,"date": wn.date}
-        start_template = jinja_current_dir.get_template("templates/winningnumber.html")
-
+        
         n1 = self.request.get('n1')
         n2 = self.request.get('n2')
         n3 = self.request.get('n3')
@@ -119,10 +98,65 @@ class ChooseDateHandler(webapp2.RequestHandler):
         userList.append(n4)
         userList.append(n5)
         userList.append(n6)
-        self.response.write(start_template.render(d))
+       
+        for l in userList:
+            self.response.write(l)
 
-        if userList[0 == wn.n1] and userList[1 == wn.n2] and userList[2 == wn.n3] and userList[3 == wn.n4] and userList[4 == wn.n5] and userList[5 == wn.n6]:
-                self.response.write("You win!")
+        for k in range(0,len(newList)-1):
+            if userList[k] == newList[k]:
+                numberMatch+=1
+
+        self.response.write(numberMatch)
+
+
+        if numberMatch < 6:
+            self.response.write("Congradulation you win!")
+        else:
+            self.response.write("You scored ", numberMatch, " try again")
+
+
+class ChooseDateHandler(webapp2.RequestHandler):
+    def get(self):
+        start_template = jinja_current_dir.get_template("templates/chooseDate.html")
+        self.response.write(start_template.render())
+
+
+    def post(self):
+        date = self.request.get('Date')
+        wn = Lottery.query().filter(Lottery.date == date).get()
+        #wn = Lottery.query(Lottery.date >= date).order(Lottery.date).get()
+        print(type(wn))
+        d={"n1":wn.n1, "n2":wn.n2, "n3":wn.n3, "n4":wn.n4, "n5":wn.n5, "n6":wn.n6,"date": wn.date}
+        start_template = jinja_current_dir.get_template("templates/winningnumber.html")
+    
+        n1 = self.request.get('n1')
+        n2 = self.request.get('n2')
+        n3 = self.request.get('n3')
+        n4 = self.request.get('n4')
+        n5 = self.request.get('n5')
+        n6 = self.request.get('n6')
+        
+        numDict = {"n1":n1, "n2":n2, "n3":n3, "n4":n4, "n5":n5, "n6":n6}
+        
+        """userList.append(n1)
+        userList.append(n2)
+        userList.append(n3)
+        userList.append(n4)
+        userList.append(n5)
+        userList.append(n6)
+        """
+        wm = Lottery(n1 = int(self.request.get('n1')), n2 = int(self.request.get('n2')), n3 = int(self.request.get('n3')), n4 = int(self.request.get('n4')), n5 = int(self.request.get('n5')), n6 = int(self.request.get('n6')), date = date)
+        
+
+        self.response.write(start_template.render(d))
+    
+        for l in numDict:
+            self.response.write(l)
+        
+        numberMatch = 0
+
+        if wm == wn:
+            self.response.write("You win!")
         else:
             self.response.write("Try again")
 
