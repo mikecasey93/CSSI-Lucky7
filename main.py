@@ -128,7 +128,7 @@ class ChooseDateHandler(webapp2.RequestHandler):
         #wn = Lottery.query(Lottery.date >= date).order(Lottery.date).get()
         print(type(wn), wn)
 
-        d={"n1":wn.n1, "n2":wn.n2, "n3":wn.n3, "n4":wn.n4, "n5":wn.n5, "n6":wn.n6,"date": wn.date}
+        win={"n1":wn.n1, "n2":wn.n2, "n3":wn.n3, "n4":wn.n4, "n5":wn.n5, "n6":wn.n6,"date": wn.date}
         start_template = jinja_current_dir.get_template("templates/winningnumber.html")
     
         n1 = self.request.get('n1')
@@ -139,6 +139,8 @@ class ChooseDateHandler(webapp2.RequestHandler):
         n6 = self.request.get('n6')
         
         numDict = {"n1":n1, "n2":n2, "n3":n3, "n4":n4, "n5":n5, "n6":n6}
+
+        d = {"win":win, "numDict":"numDict"}
         
         """userList.append(n1)
         userList.append(n2)
@@ -171,7 +173,9 @@ class ChooseDateHandler(webapp2.RequestHandler):
                 self.response.write("Try again")
         else:
             print "BOOOOOO  No value was passed"
-            self.response.write("missing number")
+            start_template = jinja_current_dir.get_template("templates/error.html")
+            self.response.write(start_template.render())
+            
                
         
 
