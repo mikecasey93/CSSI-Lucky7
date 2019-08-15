@@ -145,21 +145,17 @@ class ChooseDateHandler(webapp2.RequestHandler):
         date = self.request.get('Date')
         wn = Lottery.query().filter(Lottery.date >= date).get()
         #wn = Lottery.query(Lottery.date >= date).order(Lottery.date).get()
-        print(type(wn), wn)
         
         win={"n1":wn.n1, "n2":wn.n2, "n3":wn.n3, "n4":wn.n4, "n5":wn.n5, "n6":wn.n6,"date": wn.date}
         start_template = jinja_current_dir.get_template("templates/winningnumber.html")
-        print type(wn.n1)
+        
         n1 = int(self.request.get('n1'))
         n2 = int(self.request.get('n2'))
         n3 = int(self.request.get('n3'))
         n4 = int(self.request.get('n4'))
         n5 = int(self.request.get('n5'))
         n6 = int(self.request.get('n6'))
-        """
-        print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",n1, n1 in win.values()
-        print win.values(), type(n1), type(win.values()[1])
-        """
+        
         numDict = {"n1":n1, "n2":n2, "n3":n3, "n4":n4, "n5":n5, "n6":n6}
         
         for i in numDict:
@@ -186,25 +182,15 @@ class ChooseDateHandler(webapp2.RequestHandler):
         n4 != "" and\
         n5 != "" and\
         n6 != "":
-            print "NOT NONE YEA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        
             wm = Lottery(n1 = int(n1), n2 = int(n2), n3 = int(n3), n4 = int(n4), n5 = int(n5), n6 = int(n6), date = date)
 
             self.response.write(start_template.render(d))
         
             for key in numDict:
                 self.response.write(numDict[key])
-                print("\n")
-            
-            print("\n")
+                
 
-            
-
-            if wm == wn:
-                self.response.write("You win!")
-            else:
-                self.response.write("Try again")
-        else:
-            print "BOOOOOO  No value was passed"
         
         start_template = jinja_current_dir.get_template("templates/error.html")
         self.response.write(start_template.render())
