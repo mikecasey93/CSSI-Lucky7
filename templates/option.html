@@ -5,13 +5,117 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="/style/style.css">
+    
+    <style>
+         body {
+    background-image: url("https://i.pinimg.com/originals/57/49/47/574947c3f37720433aa59c4e08262c4b.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;  
+    }
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
+.container {
+    position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    
+}
+.container:hover .overlay {
+  opacity: 1;
+}
+
+
+.avatar {
+	width: 234px;
+	height: 234px;
+	box-sizing: border-box;
+	border: 5px white solid;
+	border-radius: 50%;
+	overflow: hidden;
+	box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+	transform: translatey(0px);
+  animation: float 3s ease-in-out infinite;
+}
+
+
+.text{
+    text-align: center;
+  font-family: "Arial Black", Gadget, sans-serif;
+  color: #e6c300;
+  font-size: 45px
+}
+    .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+.fade {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+    </style>
   </head>
   <body>
-   <h1>Select a game </h1>
+   <h1 div class=text> Games </h1>
+   
 
-  <a href="/chooseDate">ChooseDate</a>
-  <a href="/random">Random</a>
+<div class=avatar>
+     <div class=container>
+            <a href="/numberInput"><img src="https://www.nhpr.org/sites/nhpr/files/201406/lottery-ticket-big.jpg" alt="Avatar"><div class="overlay">
+                <div class="fade">What's Your Number</div>
+                </div>
+                </a>
+            </div>
+         </div>
+<div class=avatar>
+    <div class=container>
+            <a href="/chooseDate"><img src="http://utahlivebands.com/wp-content/uploads/2017/05/pick-the-right-date-best-band.jpg" alt="Avatar"><div class="overlay">
+                <div class="fade">Guess  That Number</div>
+                </div>
+                </a> 
+            </div>
+         </div>
+<div class=avatar>
+    <div class=container>
+            <a href="/random"><img src="https://d.ibtimes.co.uk/en/full/1433467/hot-lotto-lottery-cheat-hacker.jpg?w=736&f=3e2af080cebdbdc1997566beda7d1cd7" alt="Avatar"><div class="overlay">
+                <div class="fade">Randomizer</div>
+                </div>
+                </a>
+            </div>
+         </div>
 
+  
+  
 
   </body>
 </html>
