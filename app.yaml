@@ -25,9 +25,9 @@ handlers:
 
 - url: /style
   static_dir: style
-  
+
 - url: /music
-    static_dir: music
+  static_dir: music
 
 - url: /my-images
   static_dir: my-images
