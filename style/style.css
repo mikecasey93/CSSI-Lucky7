@@ -7,6 +7,10 @@
 
 }
 
+#Wel{
+  text-align: center;
+  font-size: 90px
+  
 }
 /* select page */
 #selectbg{
@@ -16,8 +20,8 @@
 .cl 
 {
   border-radius: 50%;
-	width: 70px;
-	height: 70px;
+	width: 120px;
+	height: 120px;
   background-color: #acacac;
 }
 
@@ -46,7 +50,7 @@
 
 .list > div
 {
-  padding: 10px;
+
   text-align: center;
 
 }
@@ -59,4 +63,14 @@
 .match
 {
   background-color: rgb(0, 192, 0);
+}
+
+/*random*/
+
+.random
+{
+  
+  color: #e6c300;
+  font-size: 50px
+
 }
