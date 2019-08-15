@@ -6,7 +6,7 @@ import datetime
 from database import seed_data
 from app_models import Lottery
 
-userList = []
+
 
 jinja_current_dir = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -44,13 +44,13 @@ class NumberInputHandler(webapp2.RequestHandler):
         n6 = self.request.get('n6')
 
         numDict = {"n1":n1, "n2":n2, "n3":n3, "n4":n4, "n5":n5, "n6":n6}
+        userList = []
         userList.append(n1)
         userList.append(n2)
         userList.append(n3)
         userList.append(n4)
         userList.append(n5)
         userList.append(n6)
-
         self.response.write(number_template.render(numDict))
 
 class OptionHandler(webapp2.RequestHandler):
@@ -74,16 +74,19 @@ class RandomHandler(webapp2.RequestHandler):
     def post(self):
         winningNumber = []
         newList = []
+        userList = []
         for i in range(1,60):
             winningNumber.append(i)
 
-        for j in range(1,8):
+        for j in range(1,7):
             index = random.randint(0,len(winningNumber)-1)
             newList.append(winningNumber[index])
             winningNumber.pop(index)
 
         winNumDict = {"wn1":newList[0], "wn2":newList[1], "wn3":newList[2], "wn4":newList[3], "wn5":newList[4], "wn6":newList[5]}
-        numberMatch = 0
+        start_template = jinja_current_dir.get_template("templates/randomdisplay.html")
+        
+
         
         n1 = self.request.get('n1')
         n2 = self.request.get('n2')
@@ -92,12 +95,13 @@ class RandomHandler(webapp2.RequestHandler):
         n5 = self.request.get('n5')
         n6 = self.request.get('n6')
 
-        winNumDict["n1"]=n1
+        """winNumDict["n1"]=n1
         winNumDict["n2"]=n2
         winNumDict["n3"]=n3
         winNumDict["n4"]=n4
         winNumDict["n5"]=n5
         winNumDict["n6"]=n6
+        """
         numDict = {"n1":n1, "n2":n2, "n3":n3, "n4":n4, "n5":n5, "n6":n6}
         userList.append(n1)
         userList.append(n2)
@@ -107,21 +111,28 @@ class RandomHandler(webapp2.RequestHandler):
         userList.append(n6)
 
        
-        """for l in userList:
-            self.response.write()
-"""
         for k in range(0,len(newList)-1):
             if userList[k] == newList[k]:
                 numberMatch+=1
-
-
-        start_template = jinja_current_dir.get_template("templates/randomdisplay.html")
-        self.response.write(start_template.render(winNumDict))
-        
-        if numberMatch == 6:
-            self.response.write("Congradulation you win!")
-        else:
-            self.response.write(numberMatch)
+        """ 
+        newWinList = {}
+        newWinList["nw1"] = n1
+        newWinList["nw2"] = n2 
+        newWinList["nw3"] = n3 
+        newWinList["nw4"] = n4
+        newWinList["nw5"] = n5
+        newWinList["nw6"] = n6
+        """
+        for l in range(len(userList)):
+            if userList[l] in winNumDict.values():
+                userList[l] = (int(userList[l]),"cl","match")
+            else:
+               userList[l] = (userList[l],"cl","NoMatch")
+        """
+        e = {"wn1":winNumDict["wn1"], "wn2":winNumDict["wn2"], "wn3":winNumDict["wn3"], "wn4":winNumDict["wn4"],"wn5":winNumDict["wn5"], "wn6":winNumDict["wn6"], "newWinList":newWinList}
+        """
+       
+        self.response.write(start_template.render(winNumDict, userList=userList))
 
 
 class ChooseDateHandler(webapp2.RequestHandler):
@@ -135,19 +146,26 @@ class ChooseDateHandler(webapp2.RequestHandler):
         wn = Lottery.query().filter(Lottery.date >= date).get()
         #wn = Lottery.query(Lottery.date >= date).order(Lottery.date).get()
         print(type(wn), wn)
-
+        
         win={"n1":wn.n1, "n2":wn.n2, "n3":wn.n3, "n4":wn.n4, "n5":wn.n5, "n6":wn.n6,"date": wn.date}
         start_template = jinja_current_dir.get_template("templates/winningnumber.html")
-    
-        n1 = self.request.get('n1')
-        n2 = self.request.get('n2')
-        n3 = self.request.get('n3')
-        n4 = self.request.get('n4')
-        n5 = self.request.get('n5')
-        n6 = self.request.get('n6')
-        
+        print type(wn.n1)
+        n1 = int(self.request.get('n1'))
+        n2 = int(self.request.get('n2'))
+        n3 = int(self.request.get('n3'))
+        n4 = int(self.request.get('n4'))
+        n5 = int(self.request.get('n5'))
+        n6 = int(self.request.get('n6'))
+        print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",n1, n1 in win.values()
+        print win.values(), type(n1), type(win.values()[1])
         numDict = {"n1":n1, "n2":n2, "n3":n3, "n4":n4, "n5":n5, "n6":n6}
-      
+        
+        for i in numDict:
+            if numDict[i] in win.values():
+                numDict[i] = (numDict[i],"cl","match")
+            else:
+                numDict[i] = (numDict[i],"cl","NoMatch")
+
 
 
         d = {"win":win, "numDict":numDict}
@@ -176,6 +194,8 @@ class ChooseDateHandler(webapp2.RequestHandler):
                 print("\n")
             
             print("\n")
+
+            
 
             if wm == wn:
                 self.response.write("You win!")
