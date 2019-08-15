@@ -7,6 +7,7 @@
 
 }
 
+}
 /* select page */
 #selectbg{
   background-color: #ffaf4d
@@ -15,22 +16,12 @@
 .cl 
 {
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
 	width: 70px;
 	height: 70px;
   background-color: #acacac;
 }
 
-.cl (1-6)
-{
-  border-radius: 50%;
-	width: 70px;
-	height: 70px;
-  background-color: #acacac; 
-}
+
 #select
 {
   color:aliceblue;
