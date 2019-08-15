@@ -156,8 +156,10 @@ class ChooseDateHandler(webapp2.RequestHandler):
         n4 = int(self.request.get('n4'))
         n5 = int(self.request.get('n5'))
         n6 = int(self.request.get('n6'))
+        """
         print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",n1, n1 in win.values()
         print win.values(), type(n1), type(win.values()[1])
+        """
         numDict = {"n1":n1, "n2":n2, "n3":n3, "n4":n4, "n5":n5, "n6":n6}
         
         for i in numDict:
@@ -203,8 +205,9 @@ class ChooseDateHandler(webapp2.RequestHandler):
                 self.response.write("Try again")
         else:
             print "BOOOOOO  No value was passed"
-            start_template = jinja_current_dir.get_template("templates/error.html")
-            self.response.write(start_template.render())
+        
+        start_template = jinja_current_dir.get_template("templates/error.html")
+        self.response.write(start_template.render())
             
                
         
