@@ -23,6 +23,8 @@
 	width: 120px;
 	height: 120px;
   background-color: #acacac;
+  border: 5px rgb(0, 0, 0) solid;
+	border-radius: 50%;
 }
 
 
