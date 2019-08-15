@@ -107,12 +107,15 @@ class RandomHandler(webapp2.RequestHandler):
         userList.append(n6)
 
        
-        """for l in userList:
-            self.response.write()
-"""
         for k in range(0,len(newList)-1):
             if userList[k] == newList[k]:
                 numberMatch+=1
+        
+        for l in numDict:
+            if numDict[l] in winNumDict.values():
+                numDict[l] = (numDict[l],"cl","match")
+            else:
+                numDict[l] = (numDict[l],"cl","NoMatch")
 
 
         start_template = jinja_current_dir.get_template("templates/randomdisplay.html")
@@ -135,19 +138,26 @@ class ChooseDateHandler(webapp2.RequestHandler):
         wn = Lottery.query().filter(Lottery.date >= date).get()
         #wn = Lottery.query(Lottery.date >= date).order(Lottery.date).get()
         print(type(wn), wn)
-
+        
         win={"n1":wn.n1, "n2":wn.n2, "n3":wn.n3, "n4":wn.n4, "n5":wn.n5, "n6":wn.n6,"date": wn.date}
         start_template = jinja_current_dir.get_template("templates/winningnumber.html")
     
-        n1 = self.request.get('n1')
-        n2 = self.request.get('n2')
-        n3 = self.request.get('n3')
-        n4 = self.request.get('n4')
-        n5 = self.request.get('n5')
-        n6 = self.request.get('n6')
-        
+        n1 = int(self.request.get('n1'))
+        n2 = int(self.request.get('n2'))
+        n3 = int(self.request.get('n3'))
+        n4 = int(self.request.get('n4'))
+        n5 = int(self.request.get('n5'))
+        n6 = int(self.request.get('n6'))
+        print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",n1, n1 in win.values()
+        print win.values(), type(n1), type(win.values()[1])
         numDict = {"n1":n1, "n2":n2, "n3":n3, "n4":n4, "n5":n5, "n6":n6}
-      
+        
+        for i in numDict:
+            if numDict[i] in win.values():
+                numDict[i] = (numDict[i],"cl","match")
+            else:
+                numDict[i] = (numDict[i],"cl","NoMatch")
+
 
 
         d = {"win":win, "numDict":numDict}
@@ -176,6 +186,8 @@ class ChooseDateHandler(webapp2.RequestHandler):
                 print("\n")
             
             print("\n")
+
+            
 
             if wm == wn:
                 self.response.write("You win!")
