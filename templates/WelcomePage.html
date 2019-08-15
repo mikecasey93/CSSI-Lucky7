@@ -61,7 +61,8 @@
 	transform: translatey(0px);
   animation: float 3s ease-in-out infinite;
   
-	img { width: 100%; height: auto; }
+	img { margin-right: 15px;
+    float: left; }
 }
 
 .bt {
@@ -77,33 +78,48 @@
   box-shadow: 0 9px #999;
 }
 
-.button:hover {background-color: #3e8e41}
+.bt:hover {background-color: #3e8e41}
 
-.button:active {
+.bt:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+.text{
+    text-align: center;
+  font-family: "Arial Black", Gadget, sans-serif;
+  color: #e6c300;
+  font-size: 45px
+}
+
+img.a {
+  vertical-align: baseline;
+}
     </style>
 </head>
 <body class= body >
-    <h1 id="h1">
+    <header>
+        <div id="Wel"><h1>Welcome</h1></div>
+        <div class= text><h1>LUCKY</h1></div>
+
         <div class= container>
         <div class= avatar>
                <a href="/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzXwp7mDLXfF6cTs68HYSujNlu6RW8Ew851bRcM73N0NddoitJ"/></a>
-    </h1>
+            </div>
+        </div>
+    </header>
+    
+    
     <h1>
         <center>
           
-            <a href= "/chooseDate"><button class= bt>Ready To Play?</button></a>
+            <a href= "/option"><button class= bt>Ready To Play?</button></a>
              
       </center>
     </h1>
 
 
-    <ul>
-
-    </ul>
 
 </body>
 </html>

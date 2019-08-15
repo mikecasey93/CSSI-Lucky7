@@ -7,35 +7,33 @@
 
 }
 
+}
 /* select page */
 #selectbg{
   background-color: #ffaf4d
 }
 
-.cl
+.cl 
 {
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
 	width: 70px;
 	height: 70px;
-  background-color: #cccccc;
+  background-color: #acacac;
 }
+
 
 #select
 {
   color:aliceblue;
   font-size: 40px
-
-
 }
+
 /* chooseDate */
 #CDBody
 {
   background-color: #ffaf4d
 }
+
 
 .list
 {
@@ -48,9 +46,17 @@
 
 .list > div
 {
-  padding: 5px;
+  padding: 10px;
   text-align: center;
 
 }
 
 
+.NoMatch{
+  background-color: rgb(236, 101, 101);
+}
+
+.match
+{
+  background-color: rgb(0, 192, 0);
+}
