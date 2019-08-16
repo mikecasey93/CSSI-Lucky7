@@ -95,42 +95,24 @@ class RandomHandler(webapp2.RequestHandler):
         n5 = self.request.get('n5')
         n6 = self.request.get('n6')
 
-        """winNumDict["n1"]=n1
-        winNumDict["n2"]=n2
-        winNumDict["n3"]=n3
-        winNumDict["n4"]=n4
-        winNumDict["n5"]=n5
-        winNumDict["n6"]=n6
-        """
+        
         numDict = {"n1":n1, "n2":n2, "n3":n3, "n4":n4, "n5":n5, "n6":n6}
-        userList.append(n1)
-        userList.append(n2)
-        userList.append(n3)
-        userList.append(n4)
-        userList.append(n5)
-        userList.append(n6)
+        userList.append(int(n1))
+        userList.append(int(n2))
+        userList.append(int(n3))
+        userList.append(int(n4))
+        userList.append(int(n5))
+        userList.append(int(n6))
 
-       
-        for k in range(0,len(newList)-1):
-            if userList[k] == newList[k]:
-                numberMatch+=1
-        """ 
-        newWinList = {}
-        newWinList["nw1"] = n1
-        newWinList["nw2"] = n2 
-        newWinList["nw3"] = n3 
-        newWinList["nw4"] = n4
-        newWinList["nw5"] = n5
-        newWinList["nw6"] = n6
-        """
+        
         for l in range(len(userList)):
+            print userList[l], "  ",userList[l] in winNumDict.values(),winNumDict.values()
+            print type(userList[l]), type(winNumDict.values()[0])
             if userList[l] in winNumDict.values():
                 userList[l] = (int(userList[l]),"cl","match")
             else:
-               userList[l] = (userList[l],"cl","NoMatch")
-        """
-        e = {"wn1":winNumDict["wn1"], "wn2":winNumDict["wn2"], "wn3":winNumDict["wn3"], "wn4":winNumDict["wn4"],"wn5":winNumDict["wn5"], "wn6":winNumDict["wn6"], "newWinList":newWinList}
-        """
+               userList[l] = (int(userList[l]),"cl","NoMatch")
+        
        
         self.response.write(start_template.render(winNumDict, userList=userList))
 
@@ -164,17 +146,7 @@ class ChooseDateHandler(webapp2.RequestHandler):
             else:
                 numDict[i] = (numDict[i],"cl","NoMatch")
 
-
-
         d = {"win":win, "numDict":numDict}
-        
-        """userList.append(n1)
-        userList.append(n2)
-        userList.append(n3)
-        userList.append(n4)
-        userList.append(n5)
-        userList.append(n6)
-        """
         
         if n1 != "" and\
         n2 != "" and\
@@ -187,13 +159,13 @@ class ChooseDateHandler(webapp2.RequestHandler):
 
             self.response.write(start_template.render(d))
         
-            for key in numDict:
-                self.response.write(numDict[key])
+            #for key in numDict:
+                #self.response.write(numDict[key])
                 
 
         
-        start_template = jinja_current_dir.get_template("templates/error.html")
-        self.response.write(start_template.render())
+        #start_template = jinja_current_dir.get_template("templates/error.html")
+        #self.response.write(start_template.render())
             
                
         
