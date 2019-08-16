@@ -13,7 +13,7 @@
   height:300px;
   margin: 0 auto;
   font-size: 70px;
-  color: rgba(230, 11, 11, 0.692);
+  color: rgb(255, 5, 5);
 }
 
 
@@ -54,7 +54,7 @@
   font-weight: bold;
 }
 .inverso span {
-  line-height: 70px;
+  line-height: 100px;
   transform-origin: bottom center;
   border: 6px solid rgb(245, 224, 32); 
 }
@@ -84,6 +84,10 @@ z
 }
 
 /* chooseDate */
+#Date{
+  font-size: 30px;
+  color: #e6c300;
+}
 
 .list
 {
@@ -111,6 +115,9 @@ z
   background-color: rgb(25, 228, 25);
 }
 
+#date{
+  font-size:30px;
+}
 /*random*/
 
 .random
