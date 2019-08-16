@@ -5,10 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
     <link rel="stylesheet" href="/style/style.css">
+    <style>
+    body {
+      background-image: url("https://images.unsplash.com/photo-1532699665201-76364e4bbb93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1266&q=80");
+      background-repeat: no-repeat;
+      background-size: cover;  
+      }
+      </style>
 </head>
 <body>
   <center>
-          <h1>The computers numbers were</h1>
+          <h1 class= random>The computers numbers were</h1>
           <div class="list">
           <div class="cl"> {{wn1}} </div>
           <div class="cl"> {{wn2}} </div>
@@ -19,7 +26,7 @@
   
               </div>
               <hr>
-              <h1>Your numbers were:</h1>
+              <h1 class= random>Your numbers were:</h1>
               <div class="list">
                   <div class="{{userList[0][1]}} {{userList[0][2]}}"> {{userList[0][0]}} </div>
                   <div class="{{userList[1][1]}} {{userList[1][2]}}"> {{userList[1][0]}} </div>
